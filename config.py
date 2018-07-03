@@ -14,3 +14,12 @@ class Config(object):
         'sqlite:///' + os.path.join(basedir, 'app.db')
     #配置项用于设置数据发生变更之后是否发送信号给应用
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+    MAIL_SERVER = os.environ.get('MAIL_SERVER')
+    MAIL_PORT = int(os.environ.get('MAIL_PORT') or 25)
+    #MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS') is not None
+    MAIL_USE_TLS = True
+    MAIL_USE_SSL = True  # qq邮箱需使用ssl，默认为Flase
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')#填写授权码
+    ADMINS = ['wy553171@qq.com']
